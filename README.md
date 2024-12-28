@@ -55,3 +55,35 @@ The frontend will be deployed to: `https://YOUR_GITHUB_USERNAME.github.io/writer
    ```
 
 The app will use the local backend when running in development mode and the deployed backend when running in production.
+
+## Dependencies and Build Requirements
+
+### Required Dependencies
+The frontend requires specific versions of certain dependencies to build successfully:
+
+```json
+{
+  "dependencies": {
+    "ajv": "6.12.6",
+    "ajv-keywords": "3.5.2"
+  }
+}
+```
+
+These dependencies are critical for the webpack build process and must be included in `package.json`. They resolve module resolution conflicts in the build chain:
+- `ajv` version 6.12.6 provides the expected file structure at `lib/ajv.js`
+- `ajv-keywords` version 3.5.2 is compatible with this ajv version
+
+### GitHub Actions Build
+The workflow uses a clean install approach to ensure consistent builds:
+```yaml
+- name: Install Dependencies
+  working-directory: frontend
+  run: |
+    rm -rf node_modules package-lock.json
+    npm install --legacy-peer-deps
+```
+
+### Known Issues
+1. **Build Failures**: If you encounter module resolution errors mentioning `ajv`, ensure you have the exact versions specified above in your dependencies.
+2. **Clean Installs**: Sometimes a clean install (`rm -rf node_modules package-lock.json` followed by `npm install`) can resolve dependency-related build issues.
