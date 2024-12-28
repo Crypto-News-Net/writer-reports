@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/writer-reports/static/css/main.a9293b4e.css",
+    "main.js": "/writer-reports/static/js/main.6803a0d7.js",
+    "index.html": "/writer-reports/index.html",
+    "main.a9293b4e.css.map": "/writer-reports/static/css/main.a9293b4e.css.map",
+    "main.6803a0d7.js.map": "/writer-reports/static/js/main.6803a0d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9293b4e.css",
+    "static/js/main.6803a0d7.js"
+  ]
+}
