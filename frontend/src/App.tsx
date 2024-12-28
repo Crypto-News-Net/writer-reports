@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import config from './config';
-import { PlusIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline';
+import { PlusIcon } from '@heroicons/react/24/outline';
 
 // Main application component for Writer Reports
 // This will trigger the initial deployment to create gh-pages branch
@@ -30,8 +30,6 @@ function App() {
   const [data, setData] = useState<WriterData | null>(null);
   const [newWriterName, setNewWriterName] = useState('');
   const [isAddingWriter, setIsAddingWriter] = useState(false);
-  const [startDate, setStartDate] = useState(new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0]);
-  const [endDate, setEndDate] = useState(new Date().toISOString().split('T')[0]);
 
   useEffect(() => {
     fetchData();
