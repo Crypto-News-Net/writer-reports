@@ -3,7 +3,7 @@ interface Config {
 }
 
 const config: Config = {
-  apiUrl: process.env.REACT_APP_API_URL || 'http://localhost:3001'
+  apiUrl: 'https://writer-reports-api.onrender.com'
 };
 
 export default config;

@@ -30,8 +30,6 @@ jobs:
 
       - name: Build
         working-directory: frontend
-        env:
-          REACT_APP_API_URL: 'https://writer-reports-api.onrender.com'
         run: |
           chmod +x node_modules/.bin/react-scripts
           npm run build
