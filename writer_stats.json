@@ -1,0 +1,38 @@
+{
+  "writers": [
+    {
+      "id": "1",
+      "name": "Daniel"
+    },
+    {
+      "id": "2",
+      "name": "Gabriel"
+    },
+    {
+      "id": "3",
+      "name": "Peter"
+    },
+    {
+      "id": "4",
+      "name": "Michael"
+    }
+  ],
+  "stats": {
+    "1": {
+      "articles": 11,
+      "views": 0
+    },
+    "2": {
+      "articles": 18,
+      "views": 0
+    },
+    "3": {
+      "articles": 15,
+      "views": 0
+    },
+    "4": {
+      "articles": 16,
+      "views": 0
+    }
+  }
+}
