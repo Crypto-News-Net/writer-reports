@@ -228,7 +228,7 @@ def generate_report_image(writer_stats, start_date=None, end_date=None):
 # Initialize WriterStats
 stats = WriterStats()
 
-@app.route('/api/writers', methods=['GET'])
+@app.route('/writers', methods=['GET'])
 def get_writers():
     writer_stats = stats.get_writer_stats()
     total_articles = sum(w["articles"] for w in writer_stats)
@@ -244,7 +244,7 @@ def get_writers():
         }
     })
 
-@app.route('/api/writers', methods=['POST'])
+@app.route('/writers', methods=['POST'])
 def add_writer():
     data = request.get_json()
     name = data.get('name', '').strip()
@@ -255,7 +255,7 @@ def add_writer():
     writer_id = stats.add_writer(name)
     return jsonify({"id": writer_id, "name": name}), 201
 
-@app.route('/api/writers/<writer_id>', methods=['PUT'])
+@app.route('/writers/<writer_id>', methods=['PUT'])
 def update_writer_stats(writer_id):
     data = request.get_json()
     articles = data.get('articles', 0)
@@ -267,12 +267,12 @@ def update_writer_stats(writer_id):
     stats.update_stats(writer_id, articles, views)
     return jsonify({"success": True})
 
-@app.route('/api/writers/<writer_id>', methods=['DELETE'])
+@app.route('/writers/<writer_id>', methods=['DELETE'])
 def remove_writer(writer_id):
     stats.remove_writer(writer_id)
     return jsonify({"success": True})
 
-@app.route('/api/export', methods=['POST', 'OPTIONS'])
+@app.route('/export', methods=['POST', 'OPTIONS'])
 def export_report():
     if request.method == 'OPTIONS':
         response = app.make_default_options_response()
