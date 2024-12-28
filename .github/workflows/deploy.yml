@@ -24,10 +24,12 @@ jobs:
 
       - name: Install Dependencies
         working-directory: frontend
-        run: npm ci
+        run: npm install
 
       - name: Build
         working-directory: frontend
+        env:
+          REACT_APP_API_URL: 'https://writer-reports-api.onrender.com'
         run: |
           npm run build
           touch build/.nojekyll
