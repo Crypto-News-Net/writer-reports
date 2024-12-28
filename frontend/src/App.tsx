@@ -87,50 +87,6 @@ function App() {
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Writer Reports</h1>
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-2">
-              <input
-                type="date"
-                value={startDate}
-                onChange={(e) => setStartDate(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              />
-              <span className="text-gray-500">to</span>
-              <input
-                type="date"
-                value={endDate}
-                onChange={(e) => setEndDate(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              />
-              <button
-                onClick={async () => {
-                  try {
-                    const response = await axios.post(
-                      `${config.apiUrl}/export`,
-                      { start_date: startDate, end_date: endDate },
-                      { 
-                        responseType: 'blob',
-                        headers: {
-                          'Content-Type': 'application/json'
-                        }
-                      }
-                    );
-                    const url = window.URL.createObjectURL(new Blob([response.data]));
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.setAttribute('download', `writer_report_${startDate}_to_${endDate}.png`);
-                    document.body.appendChild(link);
-                    link.click();
-                    link.remove();
-                  } catch (error) {
-                    console.error('Error exporting report:', error);
-                  }
-                }}
-                className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700"
-              >
-                <ArrowDownTrayIcon className="-ml-1 mr-2 h-5 w-5" />
-                Export Report
-              </button>
-            </div>
             <button
               onClick={() => setIsAddingWriter(true)}
               className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700"
