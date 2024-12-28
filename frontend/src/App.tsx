@@ -3,6 +3,9 @@ import axios from 'axios';
 import config from './config';
 import { PlusIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 
+// Main application component for Writer Reports
+// This will trigger the initial deployment to create gh-pages branch
+
 interface Writer {
   id: string;
   name: string;

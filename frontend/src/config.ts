@@ -1,7 +1,9 @@
-const config = {
-  apiUrl: process.env.NODE_ENV === 'production' 
-    ? 'https://writer-reports-api.onrender.com/api'
-    : 'http://localhost:5000/api'
+interface Config {
+  apiUrl: string;
+}
+
+const config: Config = {
+  apiUrl: process.env.REACT_APP_API_URL || 'http://localhost:3001'
 };
 
 export default config;
